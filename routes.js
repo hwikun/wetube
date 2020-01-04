@@ -17,7 +17,7 @@ const VIDEOS = "/videos";
 const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit";
 const UPLOAD = "/upload";
-const DELETE_VIDEO = "/:id /delete";
+const DELETE_VIDEO = "/:id/delete";
 
 // Object
 
@@ -46,8 +46,20 @@ const routes = {
             return VIDEO_DETAIL;
         }
     },
-    editVideo: EDIT_VIDEO,
-    deleteVideo: DELETE_VIDEO
+    editVideo: id => {
+        if (id) {
+            return `/videos/${id}/edit`;
+        } else {
+            return EDIT_VIDEO;
+        }
+    },
+    deleteVideo: id => {
+        if (id) {
+            return `/videos/${id}/delete`;
+        } else {
+            return DELETE_VIDEO;
+        }
+    }
 };
 
 export default routes;
