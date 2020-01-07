@@ -1,6 +1,7 @@
 import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
+import jwt from "jsonwebtoken";
 // globalRouter
 export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 
@@ -32,9 +33,12 @@ export const postLogin = passport.authenticate("local", {
 	successRedirect: routes.home
 });
 
+// Github Login
+
 export const githubLogin = passport.authenticate("github");
 
 export const githubLoginCallback = async (_, __, profile, cb) => {
+	console.log(profile);
 	const {
 		_json: { id, avatar_url: avatarUrl, name, email }
 	} = profile;
@@ -61,14 +65,17 @@ export const postGithubLogIn = (req, res) => {
 	res.redirect(routes.home);
 };
 
-export const facebookLogin = passport.authenticate("facebook");
+export const lineLogin = passport.authenticate("line");
 
-export const facebookLoginCallback = (accessToken, refreshToken, profile, cb) => {
-	console.log(accessToken, refreshToken, profile, cb);
+export const lineLoginCallback = (accessToken, refreshToken, params, profile, cb) => {
+	var decodeJwt = jwt.decode(params.id_token);
+	console.log(decodeJwt);
+	decodeJwt: {email} = profiel
+	console.log(decodeJwt);
 };
 
-export const postFacebookLogin = (req, res) => {
-	res.send(routes.home);
+export const postLineLogin = (req, res) => {
+	res.redirect(routes.home);
 };
 
 export const getMe = (req, res) => {

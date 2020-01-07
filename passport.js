@@ -1,8 +1,8 @@
 import passport from "passport";
 import GithubStrategy from "passport-github";
-import FacebookStrategy from "passport-facebook";
+import LineStrategy from "passport-line-auth";
 import User from "./models/User";
-import { githubLoginCallback, facebookLoginCallback } from "./controllers/userController";
+import { githubLoginCallback, lineLoginCallback } from "./controllers/userController";
 import routes from "./routes";
 
 passport.use(User.createStrategy());
@@ -19,13 +19,15 @@ passport.use(
 );
 
 passport.use(
-	new FacebookStrategy(
+	new LineStrategy(
 		{
-			clientID: process.env.FB_ID,
-			clientSecret: process.env.FB_SECRET,
-			callbackURL: `http://${process.env.WETUBE}:${process.env.PORT}${routes.facebookCallback}`
+			channelID: process.env.LINE_ID,
+			channelSecret: process.env.LINE_SECRET,
+			callbackURL: `http://${process.env.WETUBE}:${process.env.PORT}${routes.lineCallback}`,
+			scope: ["profile", "openid", "email"],
+			botPrompt: "normal"
 		},
-		facebookLoginCallback
+		lineLoginCallback
 	)
 );
 

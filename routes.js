@@ -25,10 +25,10 @@ const DELETE_VIDEO = "/:id/delete";
 const GITHUB = "/auth/github";
 const GITHUB_CALLBACK = "/auth/github/callback";
 
-// Facebook
+// Line
 
-const FB = "/auth/facebook";
-const FB_CALLBACK = "/auth/facebook/callback";
+const LINE = "/auth/line";
+const LINE_CALLBACK = "/auth/line/callback";
 
 // Object
 
@@ -74,8 +74,8 @@ const routes = {
 	gitHub: GITHUB,
 	githubCallback: GITHUB_CALLBACK,
 	me: ME,
-	facebook: FB,
-	facebookCallback: FB_CALLBACK
+	line: LINE,
+	lineCallback: LINE_CALLBACK
 };
 
 export default routes;
