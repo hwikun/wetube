@@ -25,57 +25,50 @@ const DELETE_VIDEO = "/:id/delete";
 const GITHUB = "/auth/github";
 const GITHUB_CALLBACK = "/auth/github/callback";
 
-// Line
-
-const LINE = "/auth/line";
-const LINE_CALLBACK = "/auth/line/callback";
-
 // Object
 
 const routes = {
-	home: HOME,
-	join: JOIN,
-	login: LOGIN,
-	logout: LOGOUT,
-	search: SEARCH,
-	users: USERS,
-	userDetail: id => {
-		if (id) {
-			return `/users/${id}`;
-		} else {
-			return USER_DETAIL;
-		}
-	},
-	editProfile: EDIT_PROFILE,
-	changePassword: CHANGE_PASSWORD,
-	videos: VIDEOS,
-	upload: UPLOAD,
-	videoDetail: id => {
-		if (id) {
-			return `/videos/${id}`;
-		} else {
-			return VIDEO_DETAIL;
-		}
-	},
-	editVideo: id => {
-		if (id) {
-			return `/videos/${id}/edit`;
-		} else {
-			return EDIT_VIDEO;
-		}
-	},
-	deleteVideo: id => {
-		if (id) {
-			return `/videos/${id}/delete`;
-		} else {
-			return DELETE_VIDEO;
-		}
-	},
-	gitHub: GITHUB,
-	githubCallback: GITHUB_CALLBACK,
-	me: ME,
-	line: LINE,
-	lineCallback: LINE_CALLBACK
+    home: HOME,
+    join: JOIN,
+    login: LOGIN,
+    logout: LOGOUT,
+    search: SEARCH,
+    users: USERS,
+    userDetail: id => {
+        if (id) {
+            return `/users/${id}`;
+        } else {
+            return USER_DETAIL;
+        }
+    },
+    editProfile: EDIT_PROFILE,
+    changePassword: CHANGE_PASSWORD,
+    videos: VIDEOS,
+    upload: UPLOAD,
+    videoDetail: id => {
+        if (id) {
+            return `/videos/${id}`;
+        } else {
+            return VIDEO_DETAIL;
+        }
+    },
+    editVideo: id => {
+        if (id) {
+            return `/videos/${id}/edit`;
+        } else {
+            return EDIT_VIDEO;
+        }
+    },
+    deleteVideo: id => {
+        if (id) {
+            return `/videos/${id}/delete`;
+        } else {
+            return DELETE_VIDEO;
+        }
+    },
+    gitHub: GITHUB,
+    githubCallback: GITHUB_CALLBACK,
+    me: ME
 };
 
 export default routes;

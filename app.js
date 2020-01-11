@@ -20,7 +20,7 @@ const app = express();
 //function
 const CookieStore = MongoStore(session);
 
-//global middleware functinon
+//global middleware function
 app.use(helmet());
 app.set("view engine", "pug");
 app.use("/uploads", express.static("uploads"));
@@ -30,12 +30,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(
-	session({
-		secret: process.env.COOKIE_SECRET,
-		resave: true,
-		saveUninitialized: false,
-		store: new CookieStore({ mongooseConnection: mongoose.connection })
-	})
+    session({
+        secret: process.env.COOKIE_SECRET,
+        resave: true,
+        saveUninitialized: false,
+        store: new CookieStore({ mongooseConnection: mongoose.connection })
+    })
 );
 app.use(passport.initialize());
 app.use(passport.session());
